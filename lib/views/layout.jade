@@ -2,14 +2,24 @@ doctype 5
 html
 	head
 		title #2InstaWithLove Gallery
-		link(rel='stylesheet', href='/stylesheets/style.css')
+		//- link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
 		script(src="/socket.io/socket.io.js", type="text/javascript")
 		script(src="/socket.io/socket.io.js", type="text/javascript")
+		script(src="/javascripts/bootstrap.min.js", type="text/javascript")
 		script(src="http://code.jquery.com/jquery-1.9.1.min.js", type="text/javascript")
 		script(type="text/javascript")
 			var socket = io.connect();
 			socket.on('message', function(update){ 
 				var data = $.parseJSON(update);
-				$('body').append('<img src=\"' +data.image+ '\"">');
+				console.log("Received Data.");
+				$('.hero-unit').append('<img src=\"' +data.image+ '\" width=\"306px\" height=\"350px\">');
 			});
 		body
+		div.container
+			div.navbar
+				div.navbar-inner
+					div.container
+						a.brand(href='#') #2InstaWithLove Gallery
+
+		div.hero-unit
